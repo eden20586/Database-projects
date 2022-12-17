@@ -5,6 +5,6 @@ In the projects we will see the abilty to Creating tables , creating relationshi
 
 The first project will be in access software and the second project will be in MYSQL software.
 
-The courses was in the academy.
+The courses were in academy.
 
-The project will be contain a file of guidance doucment.
+The projects will be contains a file of guidance doucment.
