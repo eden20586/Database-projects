@@ -1,0 +1,49 @@
+#First query#
+SELECT cars_models.model_name , cars_models.price , cars_models.year , cars_models.finish_level , cars_models.Intercity_fuel_consumption , cars_models.urban_fuel_consumption 
+FROM cars_models 
+JOIN customers_and_cars_model ON cars_models.chassis_num = customers_and_cars_model.chassis_num 
+JOIN customers ON customers.id 
+WHERE cars_models.price <=225000 AND customers.status = 'single' AND customers.age = '34' AND customers.position_in_work ='CEO' AND customers_and_cars_model.customer_id = 70
+
+#Second query#
+SELECT DISTINCT licensed_garages.garage_name‏ , licensed_garages.garage_address‏ , licensed_garages.activity_area , licensed_garages.garage_activity_time , licensed_garages.license_from
+FROM licensed_garages 
+WHERE licensed_garages.license_from ='subaru' AND licensed_garages.activity_area =מרכז'' 
+
+#Third query#
+SELECT * 
+FROM cars_models
+WHERE cars_models.year = 2020 AND price >= 91000
+
+#Fourth query#
+SELECT count(model_name) , model_name 
+FROM cars_models
+JOIN customers_and_cars_model
+ON cars_models.chassis_num = customers_and_cars_model.chassis_num
+GROUP BY model_name
+
+#Fifth query#
+SELECT avg(max_budget) , position_in_work
+FROM customers
+GROUP BY position_in_work
+
+#Sixth query#
+SELECT id , status
+FROM customers
+WHERE status NOT IN(SELECT status FROM customers WHERE status = 'single')
+
+#Seventh query#
+SELECT license_from , activity_area , garage_name‏
+FROM licensed_garages
+WHERE activity_area NOT IN(SELECT activity_area FROM licensed_garages WHERE activity_area = מרכז‘’)
+
+#Eighth query#
+SELECT count(year) , year
+FROM cars_models
+GROUP BY cars_models.year 
+
+#Ninth query#
+SELECT DISTINCT  cars_models.model_name , cars_models.price , cars_models.year , cars_models.finish_level , cars_models.Intercity_fuel_consumption , cars_models.urban_fuel_consumption
+FROM cars_models 
+JOIN customers_and_cars_model ON cars_models.chassis_num = customers_and_cars_model.chassis_num  JOIN customers ON customers.id
+WHERE customers.status = 'single' AND customers.age > 27 AND cars_models.price <= 150000 
