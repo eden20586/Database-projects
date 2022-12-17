@@ -6,7 +6,7 @@ mydb = mysql.connector.connect(
   host="localhost",
   user="root",
   #hidden code
-    password="RyTmH451" ,
+    password="yourpassword in DB" ,
   database = "customize cars to customer"
 )
 
