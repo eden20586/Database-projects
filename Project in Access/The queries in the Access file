@@ -1,0 +1,67 @@
+#First query#
+
+SELECT Residents.First_Name, Residents.Address, Libraries.Library_Name
+FROM Residents, Libraries
+WHERE Residents.ID = Libraries.Resident_ID
+ORDER BY Residents.Last_Name;
+
+#Second query#
+SELECT DISTINCT Librarian.Salary, Librarian.ID
+FROM Librarian INNER JOIN Borrowed ON Librarian.ID = Borrowed.Librarian_ID
+WHERE #01/01/2018# <= Borrowed.Borrowed_Date;
+
+#Third query#
+SELECT Books.Book_Name, Borrowed.Return_Date
+FROM Books INNER JOIN Borrowed ON Books.Book_ID = Borrowed.Book_ID
+WHERE Borrowed.Residents_ID = "55555";
+
+#Fourth query#
+SELECT Residents.ID, Residents.First_Name
+FROM Residents INNER JOIN Libraries ON Residents.ID = Libraries.Resident_ID
+WHERE Residents.First_Name LIKE "*ו*" AND Libraries.Code NOT IN("5");
+
+#Fifth query#
+SELECT Residents.Library_Code, Residents.First_Name, PhoneOfResidents.Phone_Number
+FROM Residents INNER JOIN PhoneOfResidents ON Residents.ID = PhoneOfResidents.Residents_ID
+ORDER BY Residents.Birthday DESC;
+
+#Sixth query#
+INSERT INTO Librarian
+VALUES ("6666", "01/05/2020", 3, "דני", "גיאת", 5300, NULL);
+
+#Seventh query#
+UPDATE Borrowed SET Borrowed.Fine_Fee = 10
+WHERE Borrowed.Return_Date > NOW();
+
+#Eighth query#
+SELECT AVG(Librarian.Salary) AS AvgSalary, Libraries.Library_Name
+FROM Librarian INNER JOIN Libraries ON Librarian.Libarary_Code = Libraries.Code
+GROUP BY Libraries.Library_Name;
+
+#Ninth query#
+SELECT SUM(Borrowed.Fine_Fee) AS SumFineFee, Borrowed.Residents_ID
+FROM Borrowed
+GROUP BY Borrowed.Residents_ID;
+
+#Tenth query#
+SELECT Residents.First_Name, Residents.Last_Name, Residents.ID
+FROM Residents LEFT JOIN Borrowed ON Residents.ID = Borrowed.Residents_ID
+WHERE Borrowed.Residents_ID IS NULL;
+
+#Eleventh query#
+SELECT COUNT(PhoneOfResidents.Phone_Number) AS CountOfPhoneNumberUsed, Residents.ID
+FROM Residents INNER JOIN PhoneOfResidents ON Residents.ID = PhoneOfResidents.Residents_ID
+GROUP BY Residents.ID
+ORDER BY COUNT(PhoneOfResidents.Phone_Number) DESC;
+
+#Twelfth query#
+SELECT COUNT(Borrowed.Residents_ID) AS CountOfNumberBorrowedOfResident, Residents.First_Name
+FROM Residents INNER JOIN Borrowed ON Residents.ID = Borrowed.Residents_ID
+GROUP BY Residents.First_Name
+ORDER BY COUNT(Borrowed.Residents_ID) DESC;
+
+#Thirteenth query#
+SELECT MAX(Borrowed.Fine_Fee) AS MaxOfFineFeeOfResident, Residents.First_Name
+FROM Residents INNER JOIN Borrowed ON Residents.ID = Borrowed.Residents_ID
+GROUP BY Residents.First_Name
+ORDER BY MAX(Borrowed.Fine_Fee);
