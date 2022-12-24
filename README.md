@@ -1,10 +1,14 @@
 # Databases-project
-Hey , I'm Eden Admoni , and in this repository I will show some projects in the databases topics.
+Hey, I'm Eden Admoni, and in this repository, I will show some projects in the database topics.
 
-In the projects we will see the abilty to Creating tables , creating relationships between the tables , SQL queries , creating forms and diagamrs(ERD) and more then. 
 
-The first project will be in access software and the second project will be in MYSQL software.
+In the projects, we will see the ability to create tables, create relationships between the tables, SQL queries, create forms and diagrams (ERD), and more then.
 
-The courses were in academy.
 
-The projects will be contains a file of guidance doucment.
+The first project will be in Access software and the second project will be in MySql software.
+
+
+The courses were in the academy.
+
+
+The projects will contain a file of a guidance document.
