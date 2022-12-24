@@ -1,4 +1,4 @@
-# Databases-project
+# Database-projects
 Hey, I'm Eden Admoni, and in this repository, I will show some projects in the database topics.
 
 
